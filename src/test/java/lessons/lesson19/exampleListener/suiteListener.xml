@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="suiteListener">
+
+    <listeners>
+        <listener class-name="Listeners.studyProjectListeners.ProjectListener"/>
+    </listeners>
+
+    <test name="exampleFirst">
+
+        <parameter name="username" value="lexa@gmail.com"/>
+        <parameter name="password" value="1111"/>
+
+
+        <classes>
+            <class name="lessons.lesson19.exampleListener.OurFirstTestListener"/>
+        </classes>
+    </test>
+
+    <test name="exampleSecond">
+        <classes>
+            <class name="lessons.lesson19.exampleListener.OurSecondTestListener"/>
+        </classes>
+    </test>
+</suite>

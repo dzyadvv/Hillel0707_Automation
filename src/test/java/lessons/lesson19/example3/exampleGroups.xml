@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="exampleGroups">
+
+
+    <test name="runRegression">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="lessons.lesson19.example3.OurFirstTest3"/>
+            <class name="lessons.lesson19.example3.OurSecondTest3"/>
+        </classes>
+    </test>
+</suite>
