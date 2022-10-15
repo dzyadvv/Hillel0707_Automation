@@ -15,7 +15,7 @@ import java.time.Duration;
 
 import static org.testng.Assert.assertTrue;
 
-public class dz24 {
+public class homework24 {
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -61,13 +61,13 @@ public class dz24 {
         topSells.click();
 
         //7. Проверить что на продуктовой странице отображается плашка " ТОП ПРОДАЖІВ"
-        WebElement labelPromoTop = driver.findElement(By.xpath("//span[contains(@class, \"promo-label_type_popularity\")]"));
+        WebElement labelPromoTop = driver.findElement(By.xpath("//li[1]/div/rz-label/span[contains(@class, \"promo-label_type_popularity\")]"));
         assertTrue(labelPromoTop.isDisplayed(), "LabelPromoTop doesn't appeared.");
 
     }
 
     @AfterTest
-    public void after(){
+    public void after() {
         driver.quit();
     }
 }
