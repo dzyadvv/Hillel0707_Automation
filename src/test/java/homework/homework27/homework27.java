@@ -34,15 +34,16 @@ public class homework27 {
     @Test
     public void rozetkaTest() throws IOException, InterruptedException {
 
-      //  Проверить, что в блоке Акционные предложения отображается 6 товаров
+        //  Проверить, что в блоке Акционные предложения отображается 6 товаров
         List<WebElement> promoGoods = driver.findElements(By.xpath("//*[text()=' Акційні пропозиції ']/../ul/*"));
         int countOfGoods = promoGoods.size();
         assertEquals(countOfGoods, 6, "quantity doesn't match");
 
-      //  Сохранить цену первого товара
+        //  Сохранить цену первого товара
         WebElement priceOfFirstProduct = driver.findElement(By.xpath("//*[text()=' Акційні пропозиції ']/../ul/li[1]//span[@class='tile__price-value']"));
         String priceOfFirstProductValue = priceOfFirstProduct.getAttribute("innerText").trim();
-      //  Перейти на продуктовую первого товара и проверить, что цена совпадает с сохраненной
+
+        //  Перейти на продуктовую первого товара и проверить, что цена совпадает с сохраненной
         WebElement goToFirstProduct = driver.findElement(By.xpath("//*[text()=' Акційні пропозиції ']/../ul/li[1]"));
         goToFirstProduct.click();
 
@@ -50,11 +51,11 @@ public class homework27 {
         String priceOfProductValue = priceOfProduct.getText().replace("₴", "");
         Assert.assertEquals(priceOfProductValue, priceOfFirstProductValue, "prices don't match");
 
-      //  Вернуться на главную страницу (проверка URL)
+        //  Вернуться на главную страницу (проверка URL)
         driver.navigate().back();
         String urlOfPage = driver.getCurrentUrl();
-       // System.out.println(urlOfPage);
-        Assert.assertEquals(urlOfPage, "https://rozetka.com.ua/ua/", "url doesn't match" );
+        // System.out.println(urlOfPage);
+        Assert.assertEquals(urlOfPage, "https://rozetka.com.ua/ua/", "url doesn't match");
 
         //  Проверить, что в блоке Акционные предложения отображается 6 товаров
         assertEquals(countOfGoods, 6, "quantity after returning doesn't match");
