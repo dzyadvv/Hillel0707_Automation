@@ -42,7 +42,7 @@ public class homework25 {
         String firstProductTitle = firstProduct.getText();
 
         //4. Добавить первый товар в корзину
-        WebElement buyButton = driver.findElement(By.xpath("//button[contains(@class, 'buy-button')]"));
+        WebElement buyButton = driver.findElement(By.xpath("//ul[@class='catalog-grid ng-star-inserted']/li[1]//button[contains(@class, 'buy-button')]"));
         buyButton.click();
 
         //5. Проверить что в корзину добавился один товар
