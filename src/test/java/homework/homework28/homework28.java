@@ -1,7 +1,7 @@
 package homework.homework28;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.*;
+import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -27,8 +27,8 @@ public class homework28 {
         $(byXpath("//*[contains(@href, 'c80004')]")).click();
 
         // 4. Добавить первый товар в корзину
-        SelenideElement ProductTitle = $(byXpath("//li[1]//span[@class='goods-tile__title']"));
-        String textOfProductTitle = ProductTitle.text();
+        SelenideElement productTitle = $(byXpath("//li[1]//span[@class='goods-tile__title']"));
+        String textOfProductTitle = productTitle.text();
 
         $(byXpath("//ul[@class='catalog-grid ng-star-inserted']/li[1]//button[contains(@class, 'buy-button')]")).click();
 
@@ -40,6 +40,14 @@ public class homework28 {
         $(byXpath("//li[contains(@class,'item--cart')]")).click();
         $(byXpath("//a[contains(@class,'cart-product__title')]")).shouldHave(text(textOfProductTitle));
         sleep(3000);
+
+        ElementsCollection elements = $$(By.name(""));
+        elements.shouldHave(CollectionCondition.size(3));
+
+        elements.filterBy(Condition.text("цена"));
+        elements.get(0).click();
+        elements.filterBy(Condition.text("88.0"));
+
 
     }
 }
